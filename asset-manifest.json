@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/myFlix/static/css/main.f855e6bc.css",
+    "main.js": "/myFlix/static/js/main.7c14054e.js",
+    "static/js/453.4a9980c6.chunk.js": "/myFlix/static/js/453.4a9980c6.chunk.js",
+    "service-worker.js": "/myFlix/service-worker.js",
+    "static/media/logo.svg": "/myFlix/static/media/logo.103b5fa18196d5665a7e12318285c916.svg",
+    "index.html": "/myFlix/index.html",
+    "main.f855e6bc.css.map": "/myFlix/static/css/main.f855e6bc.css.map",
+    "main.7c14054e.js.map": "/myFlix/static/js/main.7c14054e.js.map",
+    "453.4a9980c6.chunk.js.map": "/myFlix/static/js/453.4a9980c6.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f855e6bc.css",
+    "static/js/main.7c14054e.js"
+  ]
+}
