@@ -1,4 +1,6 @@
-# Meet App
+# Meet App 
+
+Features and scenarios:
 
 Feature 1: Filter Events By City
 
@@ -85,3 +87,6 @@ Given the event application is open
 When I route to the charts section
 Then I should see a chart displaying the number of upcoming events in each city
 
+The use of serverless functions:
+
+The Meet app leverages serverless functions to manage backend tasks, eliminating the need for maintaining server infrastructure. These functions retrieve and handle data from the database to gather details about upcoming events or narrow down events by city. This design ensures that event details are easily accessible while maintaining scalability, cost-effectiveness, and efficient resource allocation and enables effortless access to event details irrespective of the user's location or network status.
