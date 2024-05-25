@@ -1,5 +1,4 @@
 service: auth-server
-
 provider:
   name: aws
   runtime: nodejs20.x
@@ -9,30 +8,35 @@ provider:
     CLIENT_ID: ${file(config.json):CLIENT_ID}
     CLIENT_SECRET: ${file(config.json):CLIENT_SECRET}
     CALENDAR_ID: ${file(config.json):CALENDAR_ID}
-
 functions:
   getAuthURL:
     handler: handler.getAuthURL
+    layers:
+      - arn:aws:lambda:eu-central-1:590183738570:layer:googleapis-layer:1
     events:
-      - http:
-          path: api/get-auth-url
+      - httpApi:
+          path: /api/get-auth-url
           method: get
-          integration: lambda
-
+          cors: true
   getAccessToken:
     handler: handler.getAccessToken
+    timeout: 30
+    layers:
+      - arn:aws:lambda:eu-central-1:590183738570:layer:googleapis-layer:1
     events:
-      - http:
-          path: api/token/{code}
+      - httpApi:
+          path: /api/token/{code}
           method: get
-          integration: lambda
-          authorizer: aws_iam  # Add this line if you're using AWS IAM for authorization
-
+          cors: true
   getCalendarEvents:
     handler: handler.getCalendarEvents
+    layers:
+      - arn:aws:lambda:eu-central-1:590183738570:layer:googleapis-layer:1
     events:
-      - http:
-          path: api/get-events/{access_token}
+      - httpApi:
+          path: /api/get-events/{access_token}
           method: get
-          integration: lambda
-          authorizer: aws_iam  # Add this line if you're using AWS IAM for authorization
+          cors: true
+plugins:
+  - serverless-webpack
+  - serverless-apigateway-service-proxy
