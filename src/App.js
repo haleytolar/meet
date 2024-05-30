@@ -1,43 +1,18 @@
-// App.js
-
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import CitySearch from './components/CitySearch';
+import EventList from './components/EventList';
+import NumberOfEvents from './components/NumberOfEvents';
 import './App.css';
 
-function App() {
-  // Function to fetch data from the server
-  const fetchData = async () => {
-    try {
-      // Make a GET request to the server
-      const response = await fetch('http://localhost:8080/');
-      const data = await response.json();
-      console.log('Data from server:', data);
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  };
-
-  // Call the fetchData function when the component mounts
-  React.useEffect(() => {
-    fetchData();
-  }, []);
+const App = () => {
+  const [currentNOE, setCurrentNOE] = useState(32);
+  const [errorAlert, setErrorAlert] = useState("");
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <CitySearch />
+      <EventList />
+      <NumberOfEvents setCurrentNOE={setCurrentNOE} setErrorAlert={setErrorAlert} />
     </div>
   );
 }
