@@ -24,7 +24,6 @@ const CitySearch = ({ allLocations, setCurrentCity, setInfoAlert }) => {
     } else {
       infoText = ""
     }
-    setInfoAlert(infoText);
   };
   
   const handleItemClicked = (event) => {
@@ -32,7 +31,6 @@ const CitySearch = ({ allLocations, setCurrentCity, setInfoAlert }) => {
     setQuery(value);
     setShowSuggestions(false); // to hide the list
     setCurrentCity(value);
-    setInfoAlert("")
   };
 
   return (

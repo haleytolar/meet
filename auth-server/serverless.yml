@@ -17,7 +17,6 @@ functions:
       - httpApi:
           path: /api/get-auth-url
           method: get
-          cors: true
   getAccessToken:
     handler: handler.getAccessToken
     timeout: 30
@@ -27,7 +26,6 @@ functions:
       - httpApi:
           path: /api/token/{code}
           method: get
-          cors: true
   getCalendarEvents:
     handler: handler.getCalendarEvents
     layers:
@@ -36,7 +34,6 @@ functions:
       - httpApi:
           path: /api/get-events/{access_token}
           method: get
-          cors: true
 plugins:
   - serverless-webpack
   - serverless-apigateway-service-proxy
